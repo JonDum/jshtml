@@ -1,0 +1,11 @@
+{
+    "name": "jshtml",
+    "description": "razor template engine",
+    "version": "0.1.0",
+    "author": "Elmer Bulthuis <elmerbulthuis@gmail.com>",
+    "main": "main.js",
+    "scripts": {
+        "build": "build.js",
+        "test": "test.js"
+    },
+}

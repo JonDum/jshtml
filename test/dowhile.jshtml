@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Test</title>
+</head>
+
+<body>
+@{var n = 10;}
+@do {
+    <p>
+@n
+    </p>
+    } while( --n > 0)
+</body>
+</html>

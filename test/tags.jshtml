@@ -1,0 +1,16 @@
+@html.tag('html')
+
+@html.tag('head')
+@html.tag('title')
+@html.tag(true)
+@html.tag(true)
+
+@html.tag('body')
+
+@html.tag('p')
+@html.tag('a', {href:'http://luvdasun.com', target:'_blank'}, 'linkje')
+@html.tag(true)
+
+@html.tag(true)
+
+@html.tag(true)
