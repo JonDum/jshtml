@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>@title</title>
+</head>
+
+<body>
+
+<ul class="Task">
+@{
+taskList.forEach(function(task, index) {
+    <li class="@(index % 2 ? "Odd" : "Even")">
+    @html.tag('a', {href: '/task/' + task.id}, task.name)
+    </li>
+    });
+}
+</ul>
+
+@if(youlikeit)  {
+    <p>
+    if you like it, let me know!<br />
+    - <a href="mailto:elmerbulthuis@gmail.com">elmerbulthuis@gmail.com</a><br />
+    </p>
+}
+
+</body>
+</html>
