@@ -1,6 +1,6 @@
 var assert = require('assert');
 var fs = require('fs');
-var parser = require('../lib/jsHtmlParser');
+var Parser = require('../lib/JsHtmlParser');
 var html = require('../lib/html');
 exports.testSet = {};
 fs.readdirSync(__dirname).forEach(function(file) {
@@ -8,11 +8,11 @@ fs.readdirSync(__dirname).forEach(function(file) {
     if (!match) return;
     exports.testSet[match[1]] = function() {
         var fnText = '';
-        var p = parser.create(function(str) {
+        var parser = Parser.create(function(str) {
             fnText += str;
         });
-        p.write(fs.readFileSync(__dirname + '/' + match[0], 'utf8'));
-        p.flush();
+        parser.write(fs.readFileSync(__dirname + '/' + match[0], 'utf8'));
+        parser.flush();
         //console.log(html.encode(fnText));
         try {
             new Function(fnText);

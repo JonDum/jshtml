@@ -1,31 +1,31 @@
 var assert = require('assert');
 var fs = require('fs');
-var parser = require('../lib/jsHtmlParser');
+var Parser = require('../lib/JsHtmlParser');
 var html = require('../lib/html');
 exports.testSet = {
     'for': function() {
         var fnText = '';
-        var p = parser.create(function(str) {
+        var parser = Parser.create(function(str) {
             fnText += str;
         }, {
             whitespaceMode: 'strip'
         });
-        p.write('<html>\n');
-        p.write('<head><title>Test</title></head>\n');
-        p.write('<body>\n');
-        p.write(' <p>\n');
-        p.write('     test \n');
-        p.write('     @for(var i = 1; i <= 3; i++)\n');
-        p.write('     {\n');
-        p.write('     <text>\n');
-        p.write('     @i\n');
-        p.write('     </text>\n');
-        p.write('     }\n');
-        p.write('     !!!\n');
-        p.write(' </p>\n');
-        p.write('</body>\n');
-        p.write('</html>\n');
-        p.flush();
+        parser.write('<html>\n');
+        parser.write('<head><title>Test</title></head>\n');
+        parser.write('<body>\n');
+        parser.write(' <p>\n');
+        parser.write('     test \n');
+        parser.write('     @for(var i = 1; i <= 3; i++)\n');
+        parser.write('     {\n');
+        parser.write('     <text>\n');
+        parser.write('     @i\n');
+        parser.write('     </text>\n');
+        parser.write('     }\n');
+        parser.write('     !!!\n');
+        parser.write(' </p>\n');
+        parser.write('</body>\n');
+        parser.write('</html>\n');
+        parser.flush();
         var fn = new Function('stream', 'html', fnText);
         var actual = '';
         fn({

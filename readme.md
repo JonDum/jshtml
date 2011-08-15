@@ -26,13 +26,22 @@ JavaScript razor view engine
     }
     </ul>
     
+    <ul class="Task">
+    @for(var taskIndex = 0, taskCount = taskList.length; taskIndex < taskCount; taskIndex ++){
+        var task = taskList[taskIndex];
+        <li class="@(taskIndex % 2 ? "Odd" : "Even")">
+        <a href="/task/@task.id">@task.name</a>
+        </li>
+    }
+    </ul>
+    
     @if(youlikeit)  {
         <p>
         if you like it, let me know!<br />
         - <a href="mailto:elmerbulthuis@gmail.com">elmerbulthuis@gmail.com</a><br />
         </p>
     }
-
+    
     </body>
     </html>
 
