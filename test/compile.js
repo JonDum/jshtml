@@ -13,11 +13,12 @@ fs.readdirSync(__dirname).forEach(function(file) {
         });
         p.write(fs.readFileSync(__dirname + '/' + match[0], 'utf8'));
         p.flush();
+        //console.log(html.encode(body));
         try {
             new Function(body);
         }
         catch (e) {
-            console.log(html.encode(body));
+            //console.log(html.encode(body));
             throw e;
         }
     };

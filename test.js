@@ -19,5 +19,7 @@ function run(module) {
         testIndex++;
     }
 }
+run('./test/exec');
+run('./test/whitespace');
 run('./test/compile');
 run('./test/render');
