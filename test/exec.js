@@ -4,9 +4,9 @@ var parser = require('../lib/jsHtmlParser');
 var html = require('../lib/html');
 exports.testSet = {
     'for': function() {
-        var body = '';
+        var fnText = '';
         var p = parser.create(function(str) {
-            body += str;
+            fnText += str;
         }, {
             whitespaceMode: 'strip'
         });
@@ -26,7 +26,7 @@ exports.testSet = {
         p.write('</body>\n');
         p.write('</html>\n');
         p.flush();
-        var fn = new Function('stream', 'html', body);
+        var fn = new Function('stream', 'html', fnText);
         var actual = '';
         fn({
             write: function(str) {

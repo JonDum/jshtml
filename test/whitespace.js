@@ -5,9 +5,9 @@ var html = require('../lib/html');
 
 function buildTest(whitespaceMode, expect) {
     exports.testSet[whitespaceMode] = function() {
-        var body = '';
+        var fnText = '';
         var p = parser.create(function(str) {
-            body += str;
+            fnText += str;
         }, {
             whitespaceMode: whitespaceMode
         });
@@ -20,7 +20,7 @@ function buildTest(whitespaceMode, expect) {
         p.write('</body>\n');
         p.write('\n</html>\n');
         p.flush();
-        var fn = new Function('stream', 'html', body);
+        var fn = new Function('stream', 'html', fnText);
         var actual = '';
         fn({
             write: function(str) {

@@ -7,21 +7,23 @@ fs.readdirSync(__dirname).forEach(function(file) {
     var match = /(.+)\.jshtml$/i.exec(file);
     if (!match) return;
     exports.testSet[match[1]] = function() {
-        var body = '';
+        var fnText = '';
         var p = parser.create(function(str) {
-            body += str;
+            fnText += str;
         });
         p.write(fs.readFileSync(__dirname + '/' + match[0], 'utf8'));
         p.flush();
-        var fn = new Function('stream', 'html', 'locals', 'with(locals) {\n ' + body + '}\n');
+        var fn = new Function('stream', 'html', 'locals', 'with(locals) {\n ' + fnText + '}\n');
         var content = '';
         fn({
             write: function(str) {
                 content += str;
             }
         }, html, {
+            title:'Test',
             stoer: true,
             lief: true,
+            youlikeit:true,
             taskList: [{
                 id: 1,
                 name: 'build a house'
