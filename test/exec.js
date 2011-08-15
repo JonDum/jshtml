@@ -35,5 +35,51 @@ exports.testSet = {
         }, html);
         var expect = '<html><head><title>Test</title></head><body><p>test123!!!</p></body></html>';
         assert.equal(actual, expect);
+    },
+    'debug': function() {
+        var fnText = '';
+        var parser = Parser.create(function(str) {
+            fnText += str;
+        }, {
+            debug: true
+        });
+        parser.write('<html>\n');
+        parser.write('<head><title>Test</title></head>\n');
+        parser.write('<body>\n');
+        parser.write('@(aap)\n');
+        parser.write('</body>\n');
+        parser.write('</html>\n');
+        parser.flush();
+        var fn = new Function('stream', 'html', fnText);
+        var actual = '';
+        fn({
+            write: function(str) {
+                actual += str;
+            }
+        }, html);
+    },
+    'error': function() {
+        var fnText = '';
+        var parser = Parser.create(function(str) {
+            fnText += str;
+        }, {
+            debug: true
+        });
+        parser.write('<html>\n');
+        parser.write('<head><title>Test</title></head>\n');
+        parser.write('<body>\n');
+        parser.write('@(aap)\n');
+        parser.write('</body>\n');
+        parser.write(')\n');
+        parser.write('</html>\n');
+        parser.write('@for(){\n');
+        parser.flush();
+        var fn = new Function('stream', 'html', fnText);
+        var actual = '';
+        fn({
+            write: function(str) {
+                actual += str;
+            }
+        }, html);
     }
 };
