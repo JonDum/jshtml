@@ -3,9 +3,13 @@
     "description": "razor template engine",
     "version": "0.1.0",
     "author": "Elmer Bulthuis <elmerbulthuis@gmail.com>",
+    "repositories": [{
+        "type": "git",
+        "url": "git@github.com:LuvDaSun/jshtml.git"
+    }],
     "main": "main.js",
     "scripts": {
         "build": "build.js",
         "test": "test.js"
-    },
+    }
 }
