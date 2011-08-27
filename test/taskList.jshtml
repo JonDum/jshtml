@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>@title</title>
+</head>
+
+<body class="@body.class.xyz().abc">
+
+<ul class="Task">
+@{
+taskList.forEach(function(task,index) {
+    <li class="@(index % 2 ? "Odd" : "Even")">@task.name</li>
+    });
+}
+</ul>
+
+</body>
+</html>

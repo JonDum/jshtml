@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Test</title>
+</head>
+
+<body>
+@with({one:'een', two:'twee', three:'drie'}) {
+    <p>
+@one
+    </p>
+    <p>
+@two
+    </p>
+    <p>
+@three
+    </p>
+    }
+</body>
+</html>

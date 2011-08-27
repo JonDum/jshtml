@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+
+@if(stoer && lief) {
+    <text>
+Yeah!
+    </text>
+    }
+else {
+    <text>
+Ahhhhh...
+    </text>
+    }
+
+</body>
+</html

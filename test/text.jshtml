@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Test</title>
+</head>
+
+<body>
+@{
+    var tagMode = 'tag-mode';
+
+    <p>@tagMode</p>
+
+    var textMode = 'text-mode';
+    <text>
+    @textMode
+    @{
+        var mode;
+        mode = tagMode;
+
+        <p>
+        @mode
+        @{
+            var message;
+            message = 'in textmode';
+
+            <text>
+            <p>
+            @message
+            </text>
+            
+            message = 'we don\'t have to balance our tags!!!';
+            
+            <text>
+            @message
+            </p>
+            </text>
+
+            <b><a><l><a><n><c><e>
+in tag-mode we do have to balance our tags!<br />
+however, the tag-types do not have to match.<br />
+            </b></a></l></a></n></c></e>
+            }
+        </p>
+
+        mode = textMode;
+
+        <text>
+        @mode
+        </text>
+        }
+    </text>
+    }
+
+
+</body>
+</html>
