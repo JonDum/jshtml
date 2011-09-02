@@ -3,7 +3,7 @@ var fs = require('fs');
 var Parser = require('../lib/JsHtmlParser');
 var html = require('../lib/html');
 exports.testSet = {};
-fs.readdirSync(__dirname).forEach(function(file) {
+fs.readdirSync(__dirname + '/../examples/').forEach(function(file) {
     var match = /(.+)\.jshtml$/i.exec(file);
     if (!match) return;
     exports.testSet[match[1]] = function() {
