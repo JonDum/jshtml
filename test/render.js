@@ -2,8 +2,9 @@ var assert = require('assert');
 var fs = require('fs');
 var Parser = require('../lib/JsHtmlParser');
 var html = require('../lib/html');
+var srcDir = __dirname + '/../examples/';
 exports.testSet = {};
-fs.readdirSync(__dirname + '/../examples/').forEach(function(file) {
+fs.readdirSync(srcDir).forEach(function(file) {
     var match = /(.+)\.jshtml$/i.exec(file);
     if (!match) return;
     exports.testSet[match[1]] = function() {
@@ -11,7 +12,7 @@ fs.readdirSync(__dirname + '/../examples/').forEach(function(file) {
         var parser = Parser.create(function(str) {
             fnText += str;
         });
-        parser.write(fs.readFileSync(__dirname + '/' + match[0], 'utf8'));
+        parser.write(fs.readFileSync(srcDir + match[0], 'utf8'));
         parser.flush();
         var fn = new Function('stream', 'html', 'locals', 'with(locals) {\n ' + fnText + '}\n');
         var content = '';
