@@ -3,8 +3,8 @@
 JavaScript razor view engine
 
 ## Installation
-
-    $ npm install jshtml
+	
+	npm install jshtml
 
 ## Example
 
