@@ -44,6 +44,7 @@ JavaScript razor view engine
     </body>
     </html>
 
+Also check out the examples in the examples folder!
 
 ## Express
 
