@@ -44,20 +44,20 @@ JavaScript razor view engine
     </body>
     </html>
 
-## Example
+
+## Express
 
 Use it with express!
 
 Install express and jshtml:
-```
+	
 	npm install express
 	npm install jshtml
-```
 	
 Create a simple server (/server.js):
-```js
+	
 	var express = require('express');
-
+	
 	var port = parseInt(process.argv.pop());
 	var app = express.createServer();
 	app.configure(function() {
@@ -74,10 +74,10 @@ Create a simple server (/server.js):
 	});
 	
 	app.listen(port);
-```
-	
+
+
 Create a layout template (/views/layout.jshtml):
-```html
+	
 	<html>
 	<head>
 	<title>jshtml</title>
@@ -87,28 +87,28 @@ Create a layout template (/views/layout.jshtml):
 	@html.raw(body)
 	</body>
 	</html>
-```
+
 
 Create an index template (/views/index.jshtml):
-```html
+	
 	<h1>@title</h1>
 	<p>
 	@message
 	</p>
-```
+
 
 Start your server:
-```
+	
 	node server.js 8080
-```
+
 
 Browse to:
-```
+	
 	http://localhost:8080
-```
+
 
 Result:
-```html
+	
 	<html> 
 	<head> 
 	<title>jshtml</title> 
@@ -122,8 +122,7 @@ Result:
 	 
 	</body> 
 	</html>
-```
-	
+
 
 ## License 
 
