@@ -21,13 +21,11 @@ Check out the examples for more information.
     <body>
     
     <ul class="Task">
-    @{
-    taskList.forEach(function(task, index) {
+    @taskList.forEach(function(task, index) {
         <li class="@(index % 2 ? "Odd" : "Even")">
         @html.tag('a', {href: '/task/' + task.id}, task.name)
         </li>
         });
-    }
     </ul>
     
     <ul class="Task">
