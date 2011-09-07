@@ -1,4 +1,3 @@
-
 # JsHtml
 
 JavaScript razor view engine
@@ -44,6 +43,58 @@ JavaScript razor view engine
     
     </body>
     </html>
+
+## Example
+
+Use it with express!
+
+Install express and jshtml:
+	npm install express
+	npm install jshtml
+	
+Create a simple server (/server.js):
+	var express = require('express');
+
+	var port = parseInt(process.argv.pop());
+	var app = express.createServer();
+	app.configure(function() {
+		app.use(express.bodyParser());
+		app.use(app.router);
+	});
+	
+	app.set('view engine', 'jshtml');
+	app.get('/', function(req, res) {
+		res.render('index', {
+			title : 'Test!',
+			message : 'De groeten'
+		});
+	});
+	
+	app.listen(port);
+	
+Create a layout template (/views/layout.jshtml):
+	<html>
+	<head>
+	<title>jshtml</title>
+	</head>
+	
+	<body>
+	@html.raw(body)
+	</body>
+	</html>
+
+Create an index template (/views/index.jshtml):
+	<h1>@title</h1>
+	<p>
+	@message
+	</p>
+
+Start your server:
+	node server.js 8080
+
+Browse to:
+	http://localhost:8080
+	
 
 ## License 
 
