@@ -1,6 +1,6 @@
 # JsHtml
 
-JavaScript razor view engine. The razor syntax (also used inasp.net mvc)
+JavaScript razor view engine. The razor syntax (also used in asp.net mvc)
 keeps your html clean and allows you to use javascript in your templates.
 
 Check out the examples for more information.
