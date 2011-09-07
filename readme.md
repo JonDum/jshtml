@@ -1,10 +1,15 @@
 # JsHtml
 
-JavaScript razor view engine
+JavaScript razor view engine. The razor syntax (also used inasp.net mvc)
+keeps your html clean and allows you to use javascript in your templates.
+
+Check out the examples for more information.
+
 
 ## Installation
 	
 	npm install jshtml
+
 
 ## Example
 
@@ -46,15 +51,18 @@ JavaScript razor view engine
 
 Also check out the examples in the examples folder!
 
+
 ## Express
 
 Use it with express!
+
 
 Install express and jshtml:
 	
 	npm install express
 	npm install jshtml
 	
+
 Create a simple server (/server.js):
 	
 	var express = require('express');
@@ -125,6 +133,8 @@ Result:
 	</html>
 
 
+
+
 ## License 
 
 Copyright (c) 2011 Elmer Bulthuis <elmerbulthuis@gmail.com>
@@ -134,12 +144,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-
-
-
-
-
-
