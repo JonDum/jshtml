@@ -21,7 +21,7 @@
         </thead>
         <tbody>
         @for(var productIndex = 0; productIndex < productList.length; productIndex++)   {
-            var product = productList[productIndex]
+            var product = productList[productIndex];
             <tr>
                 <td>@(product.name)</td>
                 <td>@(product.price)</td>

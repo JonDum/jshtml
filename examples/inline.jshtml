@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 @{
 	function yeah() {
-		stream.write('yeah?');
-		return 'yeah!';
+		stream.write('<b>yeah?</b>');
+		return '<i>yeah!</i>';
 	}
 	
-	var ok = 'ok';
+	var ok = '<u>ok</u>';
 }
 <html>
 
