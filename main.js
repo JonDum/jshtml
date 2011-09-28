@@ -5,13 +5,13 @@
  */
 
 var fs = require('fs');
-var Parser = require('./lib/JsHtmlParser');
+var JsHtmlParser = require('./lib/JsHtmlParser');
 var html = require('./lib/html');
 var cache = {};
 
 function compile(template, options) {
 	var fnSrc = '';
-	var parser = Parser.create(function(data) {
+	var parser = new JsHtmlParser(function(data) {
 		fnSrc += data;
 	}, options);
 	parser.write(template);

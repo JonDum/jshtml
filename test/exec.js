@@ -1,11 +1,11 @@
 var assert = require('assert');
 var fs = require('fs');
-var Parser = require('../lib/JsHtmlParser');
+var JsHtmlParser = require('../lib/JsHtmlParser');
 var html = require('../lib/html');
 exports.testSet = {
     'for': function() {
         var fnText = '';
-        var parser = Parser.create(function(str) {
+        var parser = new JsHtmlParser(function(str) {
             fnText += str;
         }, {
             whitespaceMode: 'strip'
@@ -38,7 +38,7 @@ exports.testSet = {
     },
     'debug': function() {
         var fnText = '';
-        var parser = Parser.create(function(str) {
+        var parser = new JsHtmlParser(function(str) {
             fnText += str;
         }, {
             debug: true
@@ -60,7 +60,7 @@ exports.testSet = {
     },
     'error': function() {
         var fnText = '';
-        var parser = Parser.create(function(str) {
+        var parser = new JsHtmlParser(function(str) {
             fnText += str;
         }, {
             debug: true

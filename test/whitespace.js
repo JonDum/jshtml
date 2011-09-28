@@ -1,12 +1,12 @@
 var assert = require('assert');
 var fs = require('fs');
-var Parser = require('../lib/JsHtmlParser');
+var JsHtmlParser = require('../lib/JsHtmlParser');
 var html = require('../lib/html');
 
 function buildTest(whitespaceMode, expect) {
     exports.testSet[whitespaceMode] = function() {
         var fnText = '';
-        var p = Parser.create(function(str) {
+        var p = new JsHtmlParser(function(str) {
             fnText += str;
         }, {
             whitespaceMode: whitespaceMode
