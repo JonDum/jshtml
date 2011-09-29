@@ -4,10 +4,10 @@
 </head>
 
 <body>
-@(function(){
+@{(function(){
     <p>
 Yeah!
     </p>
-})();
+})();}
 </body>
 </html>

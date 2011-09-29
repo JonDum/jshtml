@@ -14,12 +14,11 @@ fs.readdirSync(srcDir).forEach(function(file) {
         });
         parser.write(fs.readFileSync(srcDir + match[0], 'utf8'));
         parser.flush();
-        //console.log(html.encode(fnText));
         try {
             new Function(fnText);
         }
         catch (e) {
-            //console.log(html.encode(fnText));
+	        console.log(fnText);
             throw e;
         }
     };

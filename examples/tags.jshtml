@@ -1,16 +1,13 @@
-@html.tag('html')
+<html>
 
-@html.tag('head')
-@html.tag('title')
-@html.tag(true)
-@html.tag(true)
+@tag('head', function() {
+	tag('title', title++)
+});
 
-@html.tag('body')
+@tag('body', function(){
+	<p>
+	@tag('a', {href:'http://luvdasun.com', target:'_blank'}, 'linkje');
+	</p>
+});
 
-@html.tag('p')
-@html.tag('a', {href:'http://luvdasun.com', target:'_blank'}, 'linkje')
-@html.tag(true)
-
-@html.tag(true)
-
-@html.tag(true)
+</html>

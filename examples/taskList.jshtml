@@ -7,7 +7,7 @@
 
 <ul class="Task">
 @taskList.forEach(function(task,index) {
-    <li class="@(index % 2 ? "Odd" : "Even")">@task.name</li>
+    <li class="@(index % 2 ? 'Odd' : 'Even')">@task.name</li>
     });
 </ul>
 

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 @{
 	function yeah() {
-		stream.write('<b>yeah?</b>');
 		return '<i>yeah!</i>';
 	}
 	
