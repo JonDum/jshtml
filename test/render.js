@@ -12,8 +12,7 @@ fs.readdirSync(srcDir).forEach(function(file) {
         var parser = new JsHtmlParser(function(str) {
             fnText += str;
         });
-        parser.write(fs.readFileSync(srcDir + match[0], 'utf8'));
-        parser.flush();
+        parser.end(fs.readFileSync(srcDir + match[0], 'utf8'));
         var fn = new Function(fnText);
         var content = '';
         var locals = {
@@ -32,8 +31,8 @@ fs.readdirSync(srcDir).forEach(function(file) {
             	, {id: 1, name: 'Gup', price: 19.5 }
             ]
         };
-        var context = util.overload({}, locals, {
-            echo: function(str) {
+        var context = util.extend({}, locals, {
+            write: function(str) {
                 content += str;
             }
 			, htmlEncode: util.htmlEncode

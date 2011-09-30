@@ -12,8 +12,7 @@ fs.readdirSync(srcDir).forEach(function(file) {
         var parser = new JsHtmlParser(function(str) {
             fnText += str;
         });
-        parser.write(fs.readFileSync(srcDir + match[0], 'utf8'));
-        parser.flush();
+        parser.end(fs.readFileSync(srcDir + match[0], 'utf8'));
         try {
             new Function(fnText);
         }

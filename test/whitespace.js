@@ -19,7 +19,7 @@ function buildTest(whitespaceMode, expect) {
         p.write('\t</p>\n');
         p.write('</body>\n');
         p.write('\n</html>\n');
-        p.flush();
+        p.end();
         var fn = new Function('stream', 'html', fnText);
         var actual = '';
         fn({

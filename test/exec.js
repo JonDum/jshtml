@@ -25,7 +25,7 @@ exports.testSet = {
         parser.write(' </p>\n');
         parser.write('</body>\n');
         parser.write('</html>\n');
-        parser.flush();
+        parser.end();
 
         var fn = new Function(fnText);
         var actual = '';
@@ -60,7 +60,7 @@ exports.testSet = {
         parser.write(' </p>\n');
         parser.write('</body>\n');
         parser.write('</html>\n');
-        parser.flush();
+        parser.end();
 
         var fn = new Function(fnText);
         var actual = '';
@@ -86,7 +86,7 @@ exports.testSet = {
         parser.write('@(aap)\n');
         parser.write('</body>\n');
         parser.write('</html>\n');
-        parser.flush();
+        parser.end();
         var fn = new Function(fnText);
         var actual = '';
         fn({
