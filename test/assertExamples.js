@@ -3,6 +3,8 @@ var fs = require('fs');
 var jsHtml = require('../main');
 var srcDir = __dirname + '/../examples/';
 
+var whitespaceRegex = /\s/g;
+
 fs.readdirSync(srcDir).forEach(function(file) {
     var match = /(.+)\.html$/i.exec(file);
     if (!match) return;
@@ -28,6 +30,9 @@ fs.readdirSync(srcDir).forEach(function(file) {
         }
 	});
 	
+	expect = expect.replace(whitespaceRegex, '');
+	actual = actual.replace(whitespaceRegex, '');
+
     assert.equal(actual, expect);
 });
 

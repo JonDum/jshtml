@@ -37,6 +37,11 @@ Check out the examples for more information.
 	}
 	</ul>
 
+	<p>
+	if you like it, let me know!<br />
+	- <a href="mailto:elmerbulthuis@gmail.com">elmerbulthuis@gmail.com</a><br />
+	</p>
+
 	</body>
 	</html>
 
