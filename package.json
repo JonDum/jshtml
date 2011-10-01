@@ -1,7 +1,7 @@
 {
     "name": "jshtml",
     "description": "razor template engine",
-    "version": "0.1.2",
+    "version": "0.1.2.1",
     "author": "Elmer Bulthuis <elmerbulthuis@gmail.com>",
     "repositories": [{
         "type": "git",
