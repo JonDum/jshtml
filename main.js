@@ -38,7 +38,7 @@ function compile(template, options) {
 						break;
 
 						default:
-						hasContent = false;
+						hasContent = true;
 						tagContentList.push(argument);
 					}
 				}
