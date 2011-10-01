@@ -22,12 +22,5 @@
 }
 </ul>
 
-@if(youlikeit)  {
-    <p>
-    if you like it, let me know!<br />
-    - <a href="mailto:elmerbulthuis@@gmail.com">elmerbulthuis@@gmail.com</a><br />
-    </p>
-}
-
 </body>
 </html>
