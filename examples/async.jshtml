@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Test</title>
+</head>
+
+<body>
+
+@(new Date())
+@async{
+	setTimeout(function() {
+		sync();
+		}, 1000);
+}
+@(new Date())
+
+</body>
+</html>
