@@ -1,13 +1,16 @@
+@function yeah() {
+	return 'Yeah!';
+}
 <html>
 <head>
 <title>@title</title>
 </head>
 
 <body>
-@{(function(){
-    <p>
-Yeah!
-    </p>
-})();}
+
+<p>
+@yeah()
+</p>
+
 </body>
 </html>

@@ -15,8 +15,10 @@ function compile(template, options) {
 		fnSrc += data;
 	}, options);
 	parser.end(template);
+try {
 	var fn = new Function('locals', 'context', 'with(locals)with(context){' + fnSrc + '}');
-
+}
+catch(e) {console.log(fnSrc);}
 	return function(locals) {
 		var buffer = '';
 
