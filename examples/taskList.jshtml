@@ -3,7 +3,7 @@
     <title>@title</title>
 </head>
 
-<body class="@body.class.xyz().abc">
+<body class="">
 
 <ul class="Task">
 @taskList.forEach(function(task,index) {
