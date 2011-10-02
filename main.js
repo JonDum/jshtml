@@ -16,18 +16,19 @@ function compile(template, options) {
 	}, options);
 	parser.end(template);
 try {
-	var fn = new Function('locals', 'context', 'with(locals)with(context){' + fnSrc + '}');
+	var fn = new Function('locals', 'util', 'write', 'tag', 'with(locals){' + fnSrc + '}');
 }
 catch(e) {console.log(fnSrc);}
 	return function(locals) {
 		var buffer = '';
 
-		fn(locals
-		, {
-			write: function(data) {
+		fn(
+		locals
+		, util
+		, function(data) {
 				buffer += data;
 				}
-			, tag: function(tagName) {
+		, function(tagName) {
 				var tagAttributeSetList = [];
 				var tagContentList = [];
 				var argumentCount = arguments.length;
@@ -72,9 +73,6 @@ catch(e) {console.log(fnSrc);}
 				else{
 					buffer += ' />';
 				}
-				
-			}
-			, htmlEncode: util.htmlEncode
 		});
 
 		return buffer;

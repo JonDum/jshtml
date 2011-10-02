@@ -1,6 +1,11 @@
 @function yeah() {
 	return 'Yeah!';
 }
+@function yeah2() {
+	<p>
+	yeah2
+	</p>
+}
 <html>
 <head>
 <title>@title</title>
@@ -11,6 +16,10 @@
 <p>
 @yeah()
 </p>
+
+@yeah2();
+
+
 
 </body>
 </html>
