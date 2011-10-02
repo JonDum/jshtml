@@ -14,7 +14,16 @@ var template = ''
 + '@async{\n'
 + '	setTimeout(function() {\n'
 + '<p>\n'
-+ 'abc\n'
++ 'A\n'
++ '</p>\n'
++ '		sync();\n'
++ '	}, 1000);\n'
++ '}\n'
++ '\n'
++ '@async{\n'
++ '	setTimeout(function() {\n'
++ '<p>\n'
++ 'B\n'
 + '</p>\n'
 + '		sync();\n'
 + '	}, 1000);\n'
@@ -33,7 +42,11 @@ var expect = ''
 + '<body>\n'
 + '\n'
 + '<p>\n'
-+ 'abc\n'
++ 'A\n'
++ '</p>\n'
++ '\n'
++ '<p>\n'
++ 'B\n'
 + '</p>\n'
 + '\n'
 + '</body>\n'
@@ -41,8 +54,22 @@ var expect = ''
 ;
 
 var actual = '';
+function write(){
+	var argumentCount = arguments.length;
+	for(var argumentIndex = 0; argumentIndex < argumentCount; argumentIndex++){
+		var argument = arguments[argumentIndex];
+		actual += argument;
+	}
+}
+function end(){
+	write.apply(this, arguments);
+	
+	assert.equal(actual, expect);
+}
 
 (function parse() {
+	console.log(arguments.callee);
+
 	var src = '';
 	var parser = new JsHtmlParser(function(data) {
 		src += data;
@@ -51,23 +78,20 @@ var actual = '';
 	parser.end(template);
 
 	(function compile() {
-		var fn = new Function('write', src);
+		console.log(arguments.callee);
+
+		var fn = new Function('write', 'end', src);
 
 		(function execute() {
-			fn(function(data){
-				actual += data;
-				//console.log(data);
-			});
-			
-		})();
+			console.log(arguments.callee);
+
+			fn(write, end);
+
+		})();//execute
 	
-	})();
+	})();//compile
 
-})();
+})();//parse
 
-setTimeout(function(){
-	expect = expect.replace(whitespaceRegex, '');
-	actual = actual.replace(whitespaceRegex, '');
-	assert.equal(actual, expect);
-}, 2000);
+
 
