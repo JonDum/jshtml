@@ -22,17 +22,19 @@ var jsHtml = require('../main');
     + '<html>\n'
     + '<head><title>@title</title></head>\n'
     + '<body>\n'
+    + '<a href="mailto:elmerbulthuis@gmail.com">Elmer Bulthuis</a>\n'
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , locals: {title: 'Yeah!'}
+        locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n<a href="mailto:elmerbulthuis@gmail.com">Elmer Bulthuis</a>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
+    
+    
     
 (function tilde() {
 	console.log(arguments.callee);
@@ -40,15 +42,15 @@ var jsHtml = require('../main');
     + '<html>\n'
     + '<head><title>~title</title></head>\n'
     + '<body>\n'
+    + 'o~yeah\n'
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '~'
+        anchor: '~'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\no~yeah\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -62,12 +64,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: ':'
+        anchor: ':'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -81,12 +82,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '::'
+        anchor: '::'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -100,12 +100,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: ':::'
+        anchor: ':::'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -120,12 +119,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '%'
+        anchor: '%'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -139,12 +137,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '*'
+        anchor: '*'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -158,12 +155,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '->'
+        anchor: '->'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -177,12 +173,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '(-:'
+        anchor: '(-:'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
@@ -196,12 +191,11 @@ var jsHtml = require('../main');
     + '</body>\n'
     + '</html>\n'
 	, {
-        whitespaceMode: 'strip'
-        , anchor: '//'
+        anchor: '//'
         , locals: {title: 'Yeah!'}
     });
 
-    var expect = '<html><head><title>Yeah!</title></head><body></body></html>';
+    var expect = '<html>\n<head><title>Yeah!</title></head>\n<body>\n</body>\n</html>\n';
 
     assert.equal(actual, expect);
 })();
