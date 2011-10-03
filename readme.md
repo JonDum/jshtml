@@ -89,7 +89,7 @@ Create a layout template (/views/layout.jshtml):
 	</head>
 	
 	<body>
-	@html.raw(body)
+	@write(body);
 	</body>
 	</html>
 

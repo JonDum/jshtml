@@ -7,6 +7,8 @@
 var fs = require('fs');
 var JsHtmlParser = require('./lib/JsHtmlParser');
 var util = require('./lib/util');
+
+
 var cache = {};
 
 function compile(template, options) {
@@ -23,7 +25,7 @@ function compile(template, options) {
 		fn(locals
 		, {
 			write: function(data) {
-				buffer += data;
+				buffer += util.str(data);
 				}
 			, tag: function(tagName) {
 				var tagAttributeSetList = [];
@@ -81,12 +83,16 @@ function compile(template, options) {
 
 function render(template, options) {
 	var options = util.extend({}, options);
-	var fn = options.filename ? (cache[options.filename] || (cache[options.filename] = compile(
-			template, options)))
-			: compile(template, options);
+	var fn = options.filename 
+		? (cache[options.filename] || (cache[options.filename] = compile(template, options)))
+		: compile(template, options)
+		;
 	return fn.call(options.scope, options.locals || {});
 }
 
+//exports
 exports.compile = compile;
 exports.render = render;
+
+
 
